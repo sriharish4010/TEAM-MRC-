@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My First HTML Page</title>
+
+  <!-- Basic styles (in the same file for simplicity) -->
+  <style>
+    :root { font-family: system-ui, Arial, sans-serif; }
+    body { margin: 0; background:#f7f7fb; color:#222; }
+    header, footer { background:#222; color:#fff; padding:1rem 1.25rem; }
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    h1, h2 { margin: 0.5rem 0; }
+    .card {
+      background:#fff; border-radius: 14px; padding: 1rem 1.25rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08); margin: 1rem 0;
+    }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    button {
+      border: 0; padding: 0.6rem 1rem; border-radius: 10px; cursor: pointer;
+      background: #4f46e5; color: white; font-weight: 600;
+    }
+    button:active { transform: scale(0.98); }
+    input, select, textarea {
+      width: 100%; padding: 0.6rem 0.75rem; border: 1px solid #ddd; border-radius: 10px;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.6rem; border-bottom: 1px solid #eee; text-align: left; }
+    a { color:#4f46e5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color:#666; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Mrc World</h1>
+    <p class="muted">This page demonstrates headings, lists, images, tables, forms, and JavaScript.</p>
+  </header>
+
+  <main>
+    <!-- About -->
+    <section class="card">
+      <h2>About</h2>
+      <p>
+        HTML (HyperText Markup Language) gives structure to web pages.
+        CSS styles them, and JavaScript adds interactivity.
+      </p>
+      <ul>
+        <li><strong>HTML</strong>: headings, paragraphs, lists, images, links</li>
+        <li><strong>CSS</strong>: colors, spacing, layout</li>
+        <li><strong>JS</strong>: buttons, form handling, dynamic content</li>
+      </ul>
+      <p>
+        Here’s a link to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">HTML docs</a>.
+      </p>
+    </section>
+
+    <!-- Image & Table -->
+    <section class="grid">
+      <div class="card">
+        <h2>Image</h2>
+        <img src="https://picsum.photos/600/300" alt="Random placeholder" style="width:100%; border-radius:12px;" />
+        <p class="muted">An example image with alt text.</p>
+      </div>
+
+      <div class="card">
+        <h2>Simple Table</h2>
+        <table>
+          <thead>
+            <tr><th>Feature</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&lt;h1&gt;…&lt;/h1&gt;</td><td>Page heading</td></tr>
+            <tr><td>&lt;p&gt;…&lt;/p&gt;</td><td>Paragraph text</td></tr>
+            <tr><td>&lt;a&gt;…&lt;/a&gt;</td><td>Hyperlink</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Form & JS -->
+    <section class="card">
+      <h2>Contact Form (with JS)</h2>
+      <form id="contactForm">
+        <div class="grid">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Topic
+            <select name="topic" required>
+              <option value="">Choose…</option>
+              <option>General</option>
+              <option>Support</option>
+              <option>Feedback</option>
+            </select>
+          </label>
+        </div>
+        <label style="display:block; margin-top:0.75rem;">
+          Message
+          <textarea name="message" rows="4" placeholder="Say hi…" required></textarea>
+        </label>
+        <div style="margin-top:0.75rem; display:flex; gap:0.5rem;">
+          <button type="submit">Send</button>
+          <button type="button" id="greetBtn">Greet</button>
+        </div>
+        <p id="status" class="muted" style="margin-top:0.75rem;"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> My First HTML Page</p>
+  </footer>
+
+  <!-- Tiny JavaScript -->
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Handle the form submit without reloading the page
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name');
+      const topic = data.get('topic');
+      status.textContent = `Thanks, ${name}! We received your "${topic}" message.`;
+      form.reset();
+    });
+
+    // Simple interactive button
+    document.getElementById('greetBtn').addEventListener('click', () => {
+      alert('Hello from JavaScript 👋');
+    });
+  </script>
+</body>
+</html>
