@@ -1,0 +1,141 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background-color: #000;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f0a500;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #f0a500;
+}
+.btn {
+  padding: 8px 16px;
+  background-color: #f0a500;
+  color: #000;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #f0a500;
+  color: #f0a500;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('5.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+.hero-content {
+  max-width: 700px;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 40px;
+  border-radius: 10px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #f0a500;
+}
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Footer */
+.footer {
+  background-color: #111;
+  color: #f0a500;
+  text-align: center;
+  padding: 50px 20px;
+  border-top: 2px solid #f0a500;
+  box-shadow: 0 -2px 10px rgba(240, 165, 0, 0.3);
+  margin-top: 60px;
+}
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.footer h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.footer span {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.footer p {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.95);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+  }
+  .hero-content {
+    padding: 20px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+}
